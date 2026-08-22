@@ -670,3 +670,47 @@ footer {
 .project-link:hover {
     color: #00D2FF;
 }
+/* ==========================================================================
+   AJUSTES DE RESPONSIVIDADE PARA CELULARES (MOBILE)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    /* Impede o transbordamento horizontal da página */
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    /* Reduz os paddings das seções */
+    .section {
+        padding: 90px 15px 40px;
+    }
+
+    /* Ajusta o título principal do Hero */
+    .hero-title,
+    h1 {
+        font-size: 2rem !important; /* Diminui a fonte para caber no celular */
+        line-height: 1.2;
+        word-wrap: break-word;
+    }
+
+    /* Ajusta textos e subtítulos */
+    .hero-subtitle,
+    p {
+        font-size: 0.95rem;
+        padding: 0 10px;
+    }
+
+    /* Ajusta os botões para telas pequenas */
+    .hero-buttons,
+    .project-links {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
