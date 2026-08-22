@@ -714,3 +714,66 @@ footer {
         text-align: center;
     }
 }
+/* ==========================================================================
+   CORREÇÃO DEFINITIVA DE TRANSBORDAMENTO LATERAL (MOBILE)
+   ========================================================================== */
+
+/* 1. Reset Global de Box-Sizing para garantir que Padding não expanda a largura */
+*, *::before, *::after {
+    box-sizing: border-box !important;
+}
+
+/* 2. Bloqueio estrito de rolagem horizontal no body e html */
+html, body {
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+    margin: 0;
+    padding: 0;
+}
+
+/* 3. Contenção para telas menores que 768px */
+@media (max-width: 768px) {
+
+    /* Garante que nenhum container ultrapasse a tela */
+    .container,
+    .section,
+    .hero,
+    .hero-content,
+    .projects-grid,
+    .project-card,
+    header,
+    nav {
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .section {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+
+    /* Ajuste de tipografia para evitar quebra/corte nas bordas */
+    h1, .hero-title {
+        font-size: 1.8rem !important;
+        line-height: 1.25 !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+
+    h2, .section-title {
+        font-size: 1.5rem !important;
+        word-break: break-word !important;
+    }
+
+    p, .hero-subtitle {
+        font-size: 0.9rem !important;
+        word-break: break-word !important;
+    }
+
+    /* Impede que blocos de código/terminal estourem a tela */
+    pre, code, .terminal-window {
+        max-width: 100% !important;
+        overflow-x: auto !important;
+    }
+}
