@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio | Ademir Albino</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.ico">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Ícones FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<!-- Tela de Abertura (Canvas Raio Dinâmico) -->
+<div id="intro-screen">
+    <canvas id="lightningCanvas"></canvas>
+</div>
+
+<!-- Conteúdo Principal do Site -->
+<main id="main-content" class="hidden">
+
+    <!-- Header / Navbar -->
+    <header id="header">
+        <div class="nav-container">
+            <a href="#hero" class="logo">
+                <img src="assets/logo.svg" alt="Logo" class="logo-img">
+            </a>
+
+            <nav>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="#hero" class="nav-item active">Início</a></li>
+                    <li><a href="#about" class="nav-item">Sobre</a></li>
+                    <li><a href="#skills" class="nav-item">Habilidades</a></li>
+                    <li><a href="#projects" class="nav-item">Projetos</a></li>
+                    <li><a href="#contact" class="nav-item">Contato</a></li>
+                </ul>
+            </nav>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- 1. Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="hero-badge">Desenvolvedor</span>
+                <h1 class="hero-title">
+                    Olá eu sou <span class="highlight-text">Ademir Albino</span>
+                </h1>
+                <h2 class="hero-subtitle">Transformando ideias em soluções através de código.</h2>
+                <p class="hero-description">
+                    Desenvolvedor em formação, apaixonado por café, tecnologia e programação.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">
+                        <i class="fas fa-code"></i> Ver Projetos
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <i class="fas fa-paper-plane"></i> Contato
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="glow-effect"></div>
+                <div class="code-card">
+                    <div class="card-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                        <span class="card-title">developer.py</span>
+                    </div>
+                    <div class="card-body">
+                            <pre><code><span class="keyword">class</span> <span class="class-name">Developer</span>:
+    <span class="keyword">def</span> <span class="function">__init__</span>(self):
+        self.name = <span class="string">"Ademir Albino"</span>
+        self.role = <span class="string">"ADS Student"</span>
+        self.skills = [<span class="string">"HTML"</span>, <span class="string">"CSS"</span>, <span class="string">"JS"</span>]
+
+    <span class="keyword">def</span> <span class="function">build_solutions</span>(self):
+        <span class="keyword">return</span> <span class="string">"Code, Security & Performance"</span></code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Sobre Mim -->
+    <section id="about" class="section">
+        <h2 class="section-title">Sobre Mim</h2>
+        <div class="about-card">
+            <p>
+                Sou estudante de Análise e Desenvolvimento de Sistemas, atualmente no penúltimo semestre, e um curioso
+                por natureza, especialmente quando o assunto envolve tecnologia. Gosto de entender como as coisas funcionam,
+                transformar ideias em código e aprender colocando a mão na massa. Tenho interesse especial por Java,
+                Programação Orientada a Objetos, Banco de Dados, Engenharia de Software e Segurança da Informação,
+                além de desenvolvimento Web com HTML5, CSS3 e JavaScript.
+            </p>
+            <p>
+                No momento, estou aprofundando meus conhecimentos e desenvolvendo projetos práticos para transformar
+                aprendizado em experiência e construir um portfólio que mostre não apenas o que estudo, mas o que sou
+                capaz de criar, além, é claro, de estar em busca de uma oportunidade de estágio em tecnologia, onde possa
+                aprender com profissionais experientes, contribuir com o time e continuar evoluindo como desenvolvedor.
+            </p>
+            <p>
+                Ah, e sim: café também faz parte do meu stack. ☕💻
+            </p>
+        </div>
+    </section>
+
+    <!-- 3. Habilidades -->
+    <!-- 3. Habilidades -->
+    <section id="skills" class="section">
+        <h2 class="section-title">Habilidades & Tecnologias</h2>
+
+        <!-- Linha 1 -->
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="fab fa-java"></i>
+                <h3>Java</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-js"></i>
+                <h3>JavaScript</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-html5"></i>
+                <h3>HTML5 / CSS3</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-database"></i>
+                <h3>PostgreSQL / MySQL</h3>
+            </div>
+        </div>
+
+        <!-- Linha 2 -->
+        <div class="skills-grid skills-row-2">
+            <div class="skill-card">
+                <i class="fas fa-network-wired"></i>
+                <h3>API RESTful</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-angular"></i>
+                <h3>Angular</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-python"></i>
+                <h3>Python</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-code"></i>
+                <h3>C</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Projetos -->
+    <!-- 4. Projetos -->
+    <section id="projects" class="section">
+        <h2 class="section-title">Projetos em Destaque</h2>
+
+        <div class="projects-grid">
+
+            <!-- Projeto 5: Asteria (Carro-Chefe / Destaque Especial) -->
+            <div class="project-card featured-project">
+                <div class="project-badge">Em Destaque</div>
+                <div class="project-info">
+                    <h3>Projeto Asteria <span class="status-tag">(Em Construção)</span></h3>
+                    <p>Sistema ERP web para centralização de processos operacionais e financeiros de agências de modelos. Desenvolvido com foco em automação de regras de negócio complexas e boas práticas de Engenharia de Software.</p>
+                    <div class="project-tags">
+                        <span>Java 21</span>
+                        <span>Spring Boot 3</span>
+                        <span>Spring Data JPA</span>
+                        <span>PostgreSQL</span>
+                        <span>Maven</span>
+                        <span>Angular (Planejado)</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Ademiralbino/projeto-asteria" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> Ver Repositório
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projeto 4: E-Commerce -->
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>E-Commerce</h3>
+                    <p>Simulação de loja virtual interativa com estrutura dinâmica de produtos, navegação fluida e gerenciamento visual de catálogo.</p>
+                    <div class="project-tags">
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Ademiralbino/dev-labs/tree/main/ecommerce" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> Ver Código
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projeto 3: Gerador de Senhas -->
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>Gerador de Senhas</h3>
+                    <p>Aplicação voltada para segurança da informação, gerando senhas fortes e personalizadas através de manipulação dinâmica de regras em JS.</p>
+                    <div class="project-tags">
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Ademiralbino/dev-labs/tree/main/gerador-de-senhas" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> Ver Código
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projeto 2: Landing Page Pet Shop -->
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>Landing Page Pet Shop</h3>
+                    <p>Página promocional com foco em design moderno, experiência do usuário (UX) e estratégias de conversão de clientes.</p>
+                    <div class="project-tags">
+                        <span>HTML5</span>
+                        <span>CSS3 / SASS</span>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Ademiralbino/dev-labs/tree/main/pet-shop-landing-page" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> Ver Código
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projeto 1: Tela de Login -->
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>Tela de Login</h3>
+                    <p>Interface de autenticação de usuários com validação de campos, focada em layout moderno, boas práticas de CSS e responsividade total.</p>
+                    <div class="project-tags">
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Ademiralbino/dev-labs/tree/main/tela-login" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> Ver Código
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 5. Contato & Rodapé -->
+    <section id="contact" class="section text-center">
+        <h2 class="section-title">Vamos Conversar?</h2>
+        <p class="contact-subtitle">Sinta-se à vontade para entrar em contato ou se conectar nas redes sociais.</p>
+
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/ademir-albino-ti" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/Ademiralbino" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="mailto:ademir.albino@me.com" aria-label="E-mail"><i class="fas fa-envelope"></i></a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Ademir Albino. Todos os direitos reservados.</p>
+    </footer>
+
+</main>
+
+<!-- JS -->
+<script src="script.js"></script>
+</body>
+</html>
