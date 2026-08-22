@@ -7,6 +7,24 @@
     box-sizing: border-box;
     scroll-behavior: smooth;
 }
+/* Correção global para offset de navegação com menu fixo */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 120px; /* Força todo link interno a parar 120px antes do topo */
+}
+
+.section {
+    padding: 130px 25px 80px; /* Aumenta o topo e fundo das seções */
+    max-width: 1100px;
+    margin: 0 auto;
+    scroll-margin-top: 120px;
+}
+
+#contact {
+    padding-top: 160px;
+    padding-bottom: 120px;
+    min-height: 70vh;
+}
 
 body {
     background-color: #050811;
