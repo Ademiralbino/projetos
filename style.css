@@ -206,12 +206,38 @@ body.site-loaded {
 }
 
 /* ==========================================================================
-   4. ESTRUTURA DAS SEÇÕES
+   CORREÇÃO DE MARGENS E COMPENSAÇÃO DO HEADER FIXO
    ========================================================================== */
+
+/* 1. Compensação de Scroll para o Header não cobrir os Títulos */
 .section {
-    padding: 200px 25px 40px;
+    padding: 120px 25px 60px; /* Aumenta o topo para dar respiro */
     max-width: 1100px;
     margin: 0 auto;
+    scroll-margin-top: 90px; /* Garante que o scroll pare antes de cobrir o título */
+}
+
+/* 2. Ajuste de Espaçamento para a Seção de Contato */
+#contact {
+    padding-top: 140px;
+    padding-bottom: 100px;
+    min-height: 60vh; /* Garante altura mínima para centralizar bem na tela */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-subtitle {
+    color: #cbd5e0;
+    margin-top: 15px;
+    margin-bottom: 35px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
 }
 
 .section-title {
