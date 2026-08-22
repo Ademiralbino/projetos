@@ -777,3 +777,35 @@ html, body {
         overflow-x: auto !important;
     }
 }
+/* ==========================================================================
+   AJUSTE DE LARGURA DO TERMINAL E QUEBRA DE TEXTO (MOBILE)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    /* Força o título a quebrar a linha entre as palavras sem estourar */
+    .hero-title, h1 {
+        display: block !important;
+        width: 100% !important;
+        white-space: normal !important;
+        text-align: center !important;
+    }
+
+    /* Corrige o terminal Python que está empurrando a tela */
+    .hero-code,
+    .terminal-window,
+    .code-container,
+    pre {
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        overflow-x: auto !important; /* Adiciona scroll interno se o código for longo */
+        font-size: 0.75rem !important; /* Reduz levemente a fonte do código no mobile */
+        padding: 10px !important;
+    }
+
+    /* Ajusta as margens internas do container Hero */
+    .hero-content {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+}
