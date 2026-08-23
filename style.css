@@ -9,7 +9,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 100px; /* offset único para navegação com menu fixo */
+    scroll-padding-top: 120px;
     max-width: 100vw;
     overflow-x: hidden;
 }
@@ -18,25 +18,49 @@ body {
     background-color: #050811;
     color: #F4F6FC;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    transition: background-color 0.8s ease-in-out;
-    max-width: 100vw;
     overflow-x: hidden;
-    /* IMPORTANTE: overflow-y começa 'hidden' apenas para travar o scroll
-       durante a intro. Se o JS falhar, o timeout de segurança abaixo
-       (ver nota no fim do arquivo) deve remover essa classe de qualquer forma. */
-}
-
-body:not(.site-loaded) {
-    overflow-y: hidden;
+    max-width: 100vw;
+    transition: background-color 0.8s ease-in-out;
 }
 
 body.site-loaded {
     background-color: #0A0F1D;
-    overflow-y: auto;
 }
 
 .hidden {
     display: none !important;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Estrutura Padrão das Seções */
+.section {
+    padding: 120px 25px 60px;
+    max-width: 1100px;
+    margin: 0 auto;
+    scroll-margin-top: 90px;
+    width: 100%;
+}
+
+.section-title {
+    font-size: 2rem;
+    color: #F4F6FC;
+    margin-bottom: 40px;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 50%;
+    height: 3px;
+    background-color: #00D2FF;
+    box-shadow: 0 0 10px #00D2FF;
 }
 
 /* ==========================================================================
@@ -44,7 +68,8 @@ body.site-loaded {
    ========================================================================== */
 #intro-screen {
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
     width: 100vw;
     height: 100vh;
     background-color: #050811;
@@ -76,7 +101,11 @@ body.site-loaded {
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.t-dot { width: 10px; height: 10px; border-radius: 50%; }
+.t-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
 .t-dot.red { background: #ff5f56; }
 .t-dot.yellow { background: #ffbd2e; }
 .t-dot.green { background: #27c93f; }
@@ -93,9 +122,12 @@ body.site-loaded {
     font-size: 0.95rem;
     line-height: 1.6;
     min-height: 140px;
+    word-break: break-word;
 }
 
-.terminal-body p { margin-bottom: 6px; }
+.terminal-body p {
+    margin-bottom: 6px;
+}
 
 .prompt { color: #00D2FF; font-weight: bold; }
 .cmd { color: #F4F6FC; }
@@ -107,7 +139,10 @@ body.site-loaded {
     margin-top: 10px;
 }
 
-.cursor { color: #00D2FF; animation: blink 0.8s infinite; }
+.cursor {
+    color: #00D2FF;
+    animation: blink 0.8s infinite;
+}
 
 @keyframes blink {
     0%, 100% { opacity: 1; }
@@ -143,6 +178,7 @@ body.site-loaded {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
 
 .logo {
@@ -152,14 +188,15 @@ body.site-loaded {
 }
 
 .logo-img {
-    height: 50px;
+    height: 40px;
     width: auto;
-    max-width: 100%;
     object-fit: contain;
     transition: transform 0.3s ease;
 }
 
-.logo-img:hover { transform: scale(1.05); }
+.logo-img:hover {
+    transform: scale(1.05);
+}
 
 .nav-links {
     display: flex;
@@ -178,7 +215,9 @@ body.site-loaded {
 }
 
 .nav-item:hover,
-.nav-item.active { color: #00D2FF; }
+.nav-item.active {
+    color: #00D2FF;
+}
 
 .nav-item::after {
     content: '';
@@ -193,7 +232,9 @@ body.site-loaded {
 }
 
 .nav-item:hover::after,
-.nav-item.active::after { width: 100%; }
+.nav-item.active::after {
+    width: 100%;
+}
 
 .menu-toggle {
     display: none;
@@ -205,39 +246,7 @@ body.site-loaded {
 }
 
 /* ==========================================================================
-   4. SEÇÕES GENÉRICAS (definição única — antes duplicada 3x)
-   ========================================================================== */
-.section {
-    padding: 120px 25px 60px;
-    max-width: 1100px;
-    margin: 0 auto;
-    scroll-margin-top: 100px;
-    width: 100%;
-}
-
-.section-title {
-    font-size: 2rem;
-    color: #F4F6FC;
-    margin-bottom: 40px;
-    position: relative;
-    display: inline-block;
-}
-
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    width: 50%;
-    height: 3px;
-    background-color: #00D2FF;
-    box-shadow: 0 0 10px #00D2FF;
-}
-
-.text-center { text-align: center; }
-
-/* ==========================================================================
-   5. HERO SECTION
+   4. HERO SECTION
    ========================================================================== */
 .hero-section {
     min-height: 100vh;
@@ -276,7 +285,7 @@ body.site-loaded {
     line-height: 1.15;
     color: #F4F6FC;
     margin-bottom: 15px;
-    word-wrap: break-word;
+    word-break: break-word;
     overflow-wrap: break-word;
 }
 
@@ -289,6 +298,7 @@ body.site-loaded {
     font-size: 1.4rem;
     color: #a0aec0;
     margin-bottom: 20px;
+    word-break: break-word;
 }
 
 .hero-description {
@@ -301,12 +311,12 @@ body.site-loaded {
 .hero-buttons {
     display: flex;
     gap: 20px;
-    flex-wrap: wrap;
 }
 
 .btn {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
     padding: 14px 28px;
     border-radius: 8px;
@@ -340,6 +350,7 @@ body.site-loaded {
     transform: translateY(-2px);
 }
 
+/* Card Terminal do Hero */
 .hero-visual {
     position: relative;
     display: flex;
@@ -391,10 +402,12 @@ body.site-loaded {
 
 .card-body {
     padding: 20px;
-    font-family: monospace;
+    font-family: 'Consolas', 'Courier New', monospace;
     font-size: 0.9rem;
     line-height: 1.5;
     overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
 }
 
 .keyword { color: #ff79c6; }
@@ -403,7 +416,7 @@ body.site-loaded {
 .string { color: #f1fa8c; }
 
 /* ==========================================================================
-   6. SOBRE MIM
+   5. SOBRE MIM
    ========================================================================== */
 .about-card {
     background: #0d1322;
@@ -414,14 +427,16 @@ body.site-loaded {
     color: #cbd5e0;
 }
 
-.about-card p + p { margin-top: 15px; }
+.about-card p + p {
+    margin-top: 15px;
+}
 
 /* ==========================================================================
-   7. HABILIDADES
+   6. HABILIDADES
    ========================================================================== */
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
 }
 
@@ -445,15 +460,18 @@ body.site-loaded {
     margin-bottom: 15px;
 }
 
-.skills-row-2 { margin-top: 20px; }
+.skills-row-2 {
+    margin-top: 20px;
+}
 
 /* ==========================================================================
-   8. PROJETOS
+   7. PROJETOS
    ========================================================================== */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 25px;
+    width: 100%;
 }
 
 .project-card {
@@ -462,10 +480,40 @@ body.site-loaded {
     border-radius: 12px;
     padding: 25px;
     transition: transform 0.3s ease;
-    min-width: 0; /* evita overflow em grid items com conteúdo largo (code/tags) */
+    width: 100%;
 }
 
-.project-card:hover { transform: translateY(-5px); }
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-card.featured-project {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, #0d1322 0%, #060e20 100%);
+    border: 1px solid #00D2FF;
+    box-shadow: 0 0 25px rgba(0, 210, 255, 0.15);
+    position: relative;
+}
+
+.project-badge {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background: #00D2FF;
+    color: #0A0F1D;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-tag {
+    font-size: 0.85rem;
+    color: #00D2FF;
+    font-weight: 400;
+}
 
 .project-info h3 {
     color: #F4F6FC;
@@ -498,7 +546,6 @@ body.site-loaded {
 .project-links {
     display: flex;
     gap: 15px;
-    flex-wrap: wrap;
 }
 
 .project-link {
@@ -512,39 +559,12 @@ body.site-loaded {
     transition: color 0.3s ease;
 }
 
-.project-link:hover { color: #00D2FF; }
-
-/* Card em destaque (Projeto Asteria) */
-.project-card.featured-project {
-    grid-column: 1 / -1;
-    background: linear-gradient(135deg, #0d1322 0%, #060e20 100%);
-    border: 1px solid #00D2FF;
-    box-shadow: 0 0 25px rgba(0, 210, 255, 0.15);
-    position: relative;
-}
-
-.project-badge {
-    position: absolute;
-    top: -12px;
-    right: 20px;
-    background: #00D2FF;
-    color: #0A0F1D;
-    font-size: 0.75rem;
-    font-weight: 700;
-    padding: 4px 12px;
-    border-radius: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.status-tag {
-    font-size: 0.85rem;
+.project-link:hover {
     color: #00D2FF;
-    font-weight: 400;
 }
 
 /* ==========================================================================
-   9. CONTATO & FOOTER
+   8. CONTATO & FOOTER
    ========================================================================== */
 #contact {
     padding-top: 140px;
@@ -558,13 +578,12 @@ body.site-loaded {
 .contact-subtitle {
     color: #cbd5e0;
     margin-top: 15px;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
 }
 
 .social-links {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
     gap: 25px;
     margin-bottom: 20px;
 }
@@ -588,23 +607,27 @@ footer {
 }
 
 /* ==========================================================================
-   10. RESPONSIVIDADE (consolidada — antes espalhada em 5 blocos conflitantes)
+   9. RESPONSIVIDADE (MEDIA QUERIES)
    ========================================================================== */
 
-/* Tablet: 769px – 992px */
-@media (max-width: 992px) and (min-width: 769px) {
+/* Tablets e notebooks pequenos */
+@media (max-width: 992px) {
     .hero-container {
         grid-template-columns: 1fr;
         text-align: center;
     }
-    .hero-visual { margin-top: 20px; }
-    .hero-buttons { justify-content: center; }
-    .hero-title { font-size: 2.6rem; }
+
+    .hero-buttons {
+        justify-content: center;
+    }
 }
 
-/* Mobile: até 768px */
+/* Smartphones (Mobile) */
 @media (max-width: 768px) {
-    .menu-toggle { display: block; }
+    /* Menu Hamburguer */
+    .menu-toggle {
+        display: block;
+    }
 
     .nav-links {
         position: absolute;
@@ -619,71 +642,53 @@ footer {
         display: none;
     }
 
-    .nav-links.active { display: flex; }
+    .nav-links.active {
+        display: flex;
+    }
 
+    /* Espaçamentos e Contenção de Largura */
     .section {
         padding: 90px 16px 40px;
-        scroll-margin-top: 80px;
+        max-width: 100%;
     }
 
-    #contact {
-        padding-top: 110px;
-        padding-bottom: 60px;
-    }
-
-    .hero-section {
-        padding: 100px 16px 40px;
+    /* Ajustes Tipográficos para evitar estouro nas bordas */
+    .hero-title, h1 {
+        font-size: 2rem !important;
+        line-height: 1.2;
         text-align: center;
     }
 
-    .hero-container {
-        grid-template-columns: 1fr;
-        gap: 30px;
+    .hero-subtitle {
+        font-size: 1.1rem;
     }
 
-    .hero-title,
-    h1 {
-        font-size: 1.9rem;
-        line-height: 1.25;
-        word-break: break-word;
-        text-align: center;
-    }
-
-    h2, .section-title { font-size: 1.5rem; }
-
-    .hero-subtitle,
-    p {
+    .hero-description {
         font-size: 0.95rem;
     }
 
+    /* Ajuste de Botões */
     .hero-buttons,
     .project-links {
         flex-direction: column;
         width: 100%;
-        gap: 10px;
+        gap: 12px;
     }
 
     .btn {
         width: 100%;
-        text-align: center;
-        justify-content: center;
     }
 
-    /* Terminal / bloco de código: nunca deixar estourar a largura da tela */
+    /* Correção Estrita do Terminal e Código */
     .code-card,
-    .terminal-loader,
-    pre,
-    code {
-        max-width: 100%;
-        width: 100%;
-        font-size: 0.8rem;
+    .terminal-window,
+    pre {
+        max-width: 100% !important;
+        width: 100% !important;
     }
 
-    .card-body { font-size: 0.8rem; }
-}
-
-/* Telas muito pequenas: até 380px */
-@media (max-width: 380px) {
-    .hero-title, h1 { font-size: 1.6rem; }
-    .section { padding: 80px 12px 30px; }
+    .card-body {
+        font-size: 0.8rem;
+        padding: 12px;
+    }
 }
