@@ -11,8 +11,6 @@ html {
     scroll-behavior: smooth;
     scroll-padding-top: 110px;
     width: 100%;
-    max-width: 100vw;
-    overflow-x: hidden;
 }
 
 body {
@@ -20,8 +18,6 @@ body {
     color: #F4F6FC;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     width: 100%;
-    max-width: 100vw;
-    overflow-x: hidden;
 }
 
 .hidden {
@@ -34,11 +30,10 @@ body {
 
 /* Estrutura Padrão das Seções */
 .section {
-    padding: 120px 20px 60px; /* Margem simétrica de 20px nas laterais */
+    padding: 120px 20px 60px;
     max-width: 1100px;
     margin: 0 auto;
     width: 100%;
-    box-sizing: border-box;
 }
 
 .section-title {
@@ -87,7 +82,6 @@ body {
     box-shadow: 0 0 35px rgba(0, 210, 255, 0.15);
     overflow: hidden;
     font-family: 'Consolas', 'Courier New', monospace;
-    box-sizing: border-box;
 }
 
 .terminal-header {
@@ -164,12 +158,11 @@ body {
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px; /* Margem simétrica de 20px nas laterais */
+    padding: 0 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    box-sizing: border-box;
 }
 
 .logo {
@@ -243,13 +236,12 @@ body {
 .hero-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px; /* Margem simétrica de 20px nas laterais */
+    padding: 0 20px;
     width: 100%;
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
     gap: 40px;
     align-items: center;
-    box-sizing: border-box;
 }
 
 .hero-badge {
@@ -329,7 +321,6 @@ body {
     color: #00D2FF;
 }
 
-/* Card Terminal do Hero */
 .hero-visual {
     width: 100%;
     display: flex;
@@ -343,7 +334,6 @@ body {
     border: 1px solid rgba(0, 210, 255, 0.2);
     border-radius: 12px;
     overflow: hidden;
-    box-sizing: border-box;
 }
 
 .card-header {
@@ -372,7 +362,7 @@ body {
     font-size: 0.85rem;
     line-height: 1.5;
     white-space: pre-wrap;
-    word-break: break-word; /* Quebra linhas longas de código para não estourar a tela no mobile */
+    word-break: break-word;
     overflow-x: auto;
 }
 
@@ -440,7 +430,6 @@ body {
     border-radius: 12px;
     padding: 25px;
     width: 100%;
-    box-sizing: border-box;
 }
 
 .project-card.featured-project {
@@ -545,10 +534,9 @@ footer {
 }
 
 /* ==========================================================================
-   9. RESPONSIVIDADE (MOBILE / IPHONE 15)
+   9. RESPONSIVIDADE (MOBILE / IPHONE)
    ========================================================================== */
 @media (max-width: 768px) {
-    /* Menu Hamburguer */
     .menu-toggle {
         display: block;
     }
@@ -571,15 +559,11 @@ footer {
         display: flex;
     }
 
-    /* Encaixe Perfeito de Margens Laterais (Esquerda = Direita = 20px) */
     .section,
     .hero-container,
     .nav-container {
-        padding-left: 20px !important;
-        padding-right: 20px !important;
-        width: 100% !important;
-        max-width: 100vw !important;
-        box-sizing: border-box !important;
+        padding-left: 20px;
+        padding-right: 20px;
     }
 
     .hero-section {
@@ -614,16 +598,21 @@ footer {
         padding-bottom: 40px;
     }
 
-    /* Contenção estrita para o card de código e terminal */
-    .code-card,
-    .terminal-loader {
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
-    }
-
     .card-body {
         font-size: 0.8rem;
         padding: 14px;
     }
+}
+
+/* ==========================================================================
+   10. TRAVA RESTRITA CONTRA VAZAMENTO LATERAL
+   ========================================================================== */
+html, body {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+}
+
+* {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
 }
