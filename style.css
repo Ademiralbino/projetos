@@ -9,7 +9,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 130px; /* Aumenta a distância ao clicar nos links do menu */
+    scroll-padding-top: 130px; /* Garante que os links de âncora parem abaixo da navbar */
     max-width: 100vw;
     overflow-x: hidden;
 }
@@ -37,10 +37,10 @@ body.site-loaded {
 
 /* Estrutura Padrão das Seções */
 .section {
-    padding: 140px 25px 60px; /* Aumenta o respiro superior interno de todas as seções */
+    padding: 140px 25px 60px;
     max-width: 1100px;
     margin: 0 auto;
-    scroll-margin-top: 120px; /* Garante que o scroll pare perfeitamente abaixo do header */
+    scroll-margin-top: 120px;
     width: 100%;
 }
 
@@ -188,7 +188,7 @@ body.site-loaded {
 }
 
 .logo-img {
-    height: 40px;
+    height: 50px;
     width: auto;
     object-fit: contain;
     transition: transform 0.3s ease;
@@ -249,7 +249,7 @@ body.site-loaded {
    4. HERO SECTION
    ========================================================================== */
 .hero-section {
-    min-height: 100vh;
+    min-height: 100dvh; /* Suporte dinamico para a barra do Safari no iOS */
     display: flex;
     align-items: center;
     padding: 120px 25px 60px;
@@ -622,7 +622,7 @@ footer {
     }
 }
 
-/* Smartphones (Mobile) */
+/* Smartphones (Mobile / iPhone 15) */
 @media (max-width: 768px) {
     /* Menu Hamburguer */
     .menu-toggle {
@@ -646,13 +646,30 @@ footer {
         display: flex;
     }
 
+    /* Ajuste da Hero Section para telas móbiles e Safari */
+    .hero-section {
+        padding-top: 110px;
+        padding-bottom: 70px; /* Garante que a barra do Safari no iPhone não cubra o card */
+        height: auto;
+        min-height: auto;
+    }
+
+    .glow-effect {
+        display: none; /* Desativa a luz de fundo no celular para eliminar sobreposição */
+    }
+
+    .hero-visual {
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
     /* Espaçamentos e Contenção de Largura */
     .section {
-        padding: 90px 16px 40px;
+        padding: 100px 16px 40px;
         max-width: 100%;
     }
 
-    /* Ajustes Tipográficos para evitar estouro nas bordas */
+    /* Ajustes Tipográficos */
     .hero-title, h1 {
         font-size: 2rem !important;
         line-height: 1.2;
@@ -679,7 +696,7 @@ footer {
         width: 100%;
     }
 
-    /* Correção Estrita do Terminal e Código */
+    /* Correção de Largura para Código e Terminal */
     .code-card,
     .terminal-window,
     pre {
