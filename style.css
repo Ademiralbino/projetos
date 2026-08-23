@@ -7,17 +7,21 @@
     box-sizing: border-box;
 }
 
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 110px;
-    width: 100%;
 }
 
 body {
     background-color: #0A0F1D;
     color: #F4F6FC;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    width: 100%;
 }
 
 .hidden {
@@ -361,9 +365,14 @@ body {
     font-family: 'Consolas', 'Courier New', monospace;
     font-size: 0.85rem;
     line-height: 1.5;
-    white-space: pre-wrap;
-    word-break: break-word;
     overflow-x: auto;
+}
+
+/* Prevenção rigorosa de estouro do card de código */
+.card-body pre {
+    white-space: pre-wrap;
+    word-break: break-all;
+    max-width: 100%;
 }
 
 .keyword { color: #ff79c6; }
@@ -562,8 +571,8 @@ footer {
     .section,
     .hero-container,
     .nav-container {
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-left: 15px;
+        padding-right: 15px;
     }
 
     .hero-section {
@@ -600,19 +609,6 @@ footer {
 
     .card-body {
         font-size: 0.8rem;
-        padding: 14px;
+        padding: 12px;
     }
-}
-
-/* ==========================================================================
-   10. TRAVA RESTRITA CONTRA VAZAMENTO LATERAL
-   ========================================================================== */
-html, body {
-    max-width: 100% !important;
-    overflow-x: hidden !important;
-}
-
-* {
-    max-width: 100% !important;
-    box-sizing: border-box !important;
 }
