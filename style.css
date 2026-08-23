@@ -1,42 +1,38 @@
 /* ==========================================================================
    1. RESET E CONFIGURAÇÕES GERAIS
    ========================================================================== */
-* {
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    scroll-behavior: smooth;
 }
-/* Correção global para offset de navegação com menu fixo */
+
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 120px; /* Força todo link interno a parar 120px antes do topo */
-}
-
-.section {
-    padding: 130px 25px 80px; /* Aumenta o topo e fundo das seções */
-    max-width: 1100px;
-    margin: 0 auto;
-    scroll-margin-top: 120px;
-}
-
-#contact {
-    padding-top: 160px;
-    padding-bottom: 120px;
-    min-height: 70vh;
+    scroll-padding-top: 100px; /* offset único para navegação com menu fixo */
+    max-width: 100vw;
+    overflow-x: hidden;
 }
 
 body {
     background-color: #050811;
     color: #F4F6FC;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    overflow: hidden;
     transition: background-color 0.8s ease-in-out;
+    max-width: 100vw;
+    overflow-x: hidden;
+    /* IMPORTANTE: overflow-y começa 'hidden' apenas para travar o scroll
+       durante a intro. Se o JS falhar, o timeout de segurança abaixo
+       (ver nota no fim do arquivo) deve remover essa classe de qualquer forma. */
+}
+
+body:not(.site-loaded) {
+    overflow-y: hidden;
 }
 
 body.site-loaded {
     background-color: #0A0F1D;
-    overflow: auto;
+    overflow-y: auto;
 }
 
 .hidden {
@@ -48,8 +44,7 @@ body.site-loaded {
    ========================================================================== */
 #intro-screen {
     position: fixed;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100vw;
     height: 100vh;
     background-color: #050811;
@@ -81,11 +76,7 @@ body.site-loaded {
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.t-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-}
+.t-dot { width: 10px; height: 10px; border-radius: 50%; }
 .t-dot.red { background: #ff5f56; }
 .t-dot.yellow { background: #ffbd2e; }
 .t-dot.green { background: #27c93f; }
@@ -104,9 +95,7 @@ body.site-loaded {
     min-height: 140px;
 }
 
-.terminal-body p {
-    margin-bottom: 6px;
-}
+.terminal-body p { margin-bottom: 6px; }
 
 .prompt { color: #00D2FF; font-weight: bold; }
 .cmd { color: #F4F6FC; }
@@ -118,10 +107,7 @@ body.site-loaded {
     margin-top: 10px;
 }
 
-.cursor {
-    color: #00D2FF;
-    animation: blink 0.8s infinite;
-}
+.cursor { color: #00D2FF; animation: blink 0.8s infinite; }
 
 @keyframes blink {
     0%, 100% { opacity: 1; }
@@ -166,15 +152,14 @@ body.site-loaded {
 }
 
 .logo-img {
-    height: 80px;
+    height: 50px;
     width: auto;
+    max-width: 100%;
     object-fit: contain;
     transition: transform 0.3s ease;
 }
 
-.logo-img:hover {
-    transform: scale(1.05);
-}
+.logo-img:hover { transform: scale(1.05); }
 
 .nav-links {
     display: flex;
@@ -193,9 +178,7 @@ body.site-loaded {
 }
 
 .nav-item:hover,
-.nav-item.active {
-    color: #00D2FF;
-}
+.nav-item.active { color: #00D2FF; }
 
 .nav-item::after {
     content: '';
@@ -210,9 +193,7 @@ body.site-loaded {
 }
 
 .nav-item:hover::after,
-.nav-item.active::after {
-    width: 100%;
-}
+.nav-item.active::after { width: 100%; }
 
 .menu-toggle {
     display: none;
@@ -224,38 +205,14 @@ body.site-loaded {
 }
 
 /* ==========================================================================
-   CORREÇÃO DE MARGENS E COMPENSAÇÃO DO HEADER FIXO
+   4. SEÇÕES GENÉRICAS (definição única — antes duplicada 3x)
    ========================================================================== */
-
-/* 1. Compensação de Scroll para o Header não cobrir os Títulos */
 .section {
-    padding: 120px 25px 60px; /* Aumenta o topo para dar respiro */
+    padding: 120px 25px 60px;
     max-width: 1100px;
     margin: 0 auto;
-    scroll-margin-top: 90px; /* Garante que o scroll pare antes de cobrir o título */
-}
-
-/* 2. Ajuste de Espaçamento para a Seção de Contato */
-#contact {
-    padding-top: 140px;
-    padding-bottom: 100px;
-    min-height: 60vh; /* Garante altura mínima para centralizar bem na tela */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.contact-subtitle {
-    color: #cbd5e0;
-    margin-top: 15px;
-    margin-bottom: 35px;
-}
-
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-bottom: 20px;
+    scroll-margin-top: 100px;
+    width: 100%;
 }
 
 .section-title {
@@ -277,6 +234,8 @@ body.site-loaded {
     box-shadow: 0 0 10px #00D2FF;
 }
 
+.text-center { text-align: center; }
+
 /* ==========================================================================
    5. HERO SECTION
    ========================================================================== */
@@ -286,6 +245,7 @@ body.site-loaded {
     align-items: center;
     padding: 120px 25px 60px;
     background: radial-gradient(circle at 70% 30%, rgba(11, 85, 184, 0.15) 0%, transparent 60%);
+    width: 100%;
 }
 
 .hero-container {
@@ -316,6 +276,8 @@ body.site-loaded {
     line-height: 1.15;
     color: #F4F6FC;
     margin-bottom: 15px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .highlight-text {
@@ -339,6 +301,7 @@ body.site-loaded {
 .hero-buttons {
     display: flex;
     gap: 20px;
+    flex-wrap: wrap;
 }
 
 .btn {
@@ -381,6 +344,7 @@ body.site-loaded {
     position: relative;
     display: flex;
     justify-content: center;
+    width: 100%;
 }
 
 .glow-effect {
@@ -430,6 +394,7 @@ body.site-loaded {
     font-family: monospace;
     font-size: 0.9rem;
     line-height: 1.5;
+    overflow-x: auto;
 }
 
 .keyword { color: #ff79c6; }
@@ -449,16 +414,14 @@ body.site-loaded {
     color: #cbd5e0;
 }
 
-.about-card p + p {
-    margin-top: 15px;
-}
+.about-card p + p { margin-top: 15px; }
 
 /* ==========================================================================
    7. HABILIDADES
    ========================================================================== */
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     gap: 20px;
 }
 
@@ -482,17 +445,14 @@ body.site-loaded {
     margin-bottom: 15px;
 }
 
-/* Espaçamento entre as linhas de Habilidades */
-.skills-row-2 {
-    margin-top: 20px;
-}
+.skills-row-2 { margin-top: 20px; }
 
 /* ==========================================================================
    8. PROJETOS
    ========================================================================== */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 25px;
 }
 
@@ -502,11 +462,10 @@ body.site-loaded {
     border-radius: 12px;
     padding: 25px;
     transition: transform 0.3s ease;
+    min-width: 0; /* evita overflow em grid items com conteúdo largo (code/tags) */
 }
 
-.project-card:hover {
-    transform: translateY(-5px);
-}
+.project-card:hover { transform: translateY(-5px); }
 
 .project-info h3 {
     color: #F4F6FC;
@@ -521,90 +480,41 @@ body.site-loaded {
 
 .project-tags {
     display: flex;
-    gap: 10px;
+    flex-wrap: wrap;
+    gap: 8px;
     margin-bottom: 20px;
 }
 
 .project-tags span {
-    background: rgba(11, 85, 184, 0.3);
+    background: rgba(11, 85, 184, 0.25);
+    border: 1px solid rgba(0, 210, 255, 0.3);
     color: #00D2FF;
     padding: 4px 10px;
     border-radius: 4px;
     font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.project-links {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
 .project-link {
-    color: #00D2FF;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #F4F6FC;
     text-decoration: none;
     font-weight: 600;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
 }
 
-/* ==========================================================================
-   9. CONTATO & FOOTER
-   ========================================================================== */
-.text-center { text-align: center; }
+.project-link:hover { color: #00D2FF; }
 
-.contact-subtitle {
-    color: #cbd5e0;
-    margin-bottom: 30px;
-}
-
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-}
-
-.social-links a {
-    color: #F4F6FC;
-    font-size: 1.8rem;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.social-links a:hover {
-    color: #00D2FF;
-    transform: translateY(-3px);
-}
-
-footer {
-    padding: 40px 25px;
-    text-align: center;
-    color: #718096;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-/* ==========================================================================
-   10. RESPONSIVIDADE
-   ========================================================================== */
-@media (max-width: 992px) {
-    .hero-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-    .hero-buttons { justify-content: center; }
-}
-
-@media (max-width: 768px) {
-    .menu-toggle { display: block; }
-    .nav-links {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: #0A0F1D;
-        flex-direction: column;
-        align-items: center;
-        padding: 20px 0;
-        gap: 20px;
-        display: none;
-    }
-    .nav-links.active { display: flex; }
-}
-/* ==========================================================================
-   ESTILOS ESPECÍFICOS PARA OS CARDS DE PROJETOS
-   ========================================================================== */
-
-/* Card em Destaque (Projeto Asteria) */
+/* Card em destaque (Projeto Asteria) */
 .project-card.featured-project {
     grid-column: 1 / -1;
     background: linear-gradient(135deg, #0d1322 0%, #060e20 100%);
@@ -633,75 +543,119 @@ footer {
     font-weight: 400;
 }
 
-/* Flex e Wrap para Tags de Tecnologias */
-.project-tags {
+/* ==========================================================================
+   9. CONTATO & FOOTER
+   ========================================================================== */
+#contact {
+    padding-top: 140px;
+    padding-bottom: 100px;
+    min-height: 60vh;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-subtitle {
+    color: #cbd5e0;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 25px;
     margin-bottom: 20px;
 }
 
-.project-tags span {
-    background: rgba(11, 85, 184, 0.25);
-    border: 1px solid rgba(0, 210, 255, 0.3);
-    color: #00D2FF;
-    padding: 4px 10px;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    font-weight: 500;
-}
-
-.project-links {
-    display: flex;
-    gap: 15px;
-}
-
-.project-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
+.social-links a {
     color: #F4F6FC;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: color 0.3s ease;
+    font-size: 1.8rem;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.project-link:hover {
+.social-links a:hover {
     color: #00D2FF;
+    transform: translateY(-3px);
 }
+
+footer {
+    padding: 40px 25px;
+    text-align: center;
+    color: #718096;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
 /* ==========================================================================
-   AJUSTES DE RESPONSIVIDADE PARA CELULARES (MOBILE)
+   10. RESPONSIVIDADE (consolidada — antes espalhada em 5 blocos conflitantes)
    ========================================================================== */
 
+/* Tablet: 769px – 992px */
+@media (max-width: 992px) and (min-width: 769px) {
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .hero-visual { margin-top: 20px; }
+    .hero-buttons { justify-content: center; }
+    .hero-title { font-size: 2.6rem; }
+}
+
+/* Mobile: até 768px */
 @media (max-width: 768px) {
-    /* Impede o transbordamento horizontal da página */
-    html, body {
-        overflow-x: hidden;
+    .menu-toggle { display: block; }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
         width: 100%;
+        background-color: #0A0F1D;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        gap: 20px;
+        display: none;
     }
 
-    /* Reduz os paddings das seções */
+    .nav-links.active { display: flex; }
+
     .section {
-        padding: 90px 15px 40px;
+        padding: 90px 16px 40px;
+        scroll-margin-top: 80px;
     }
 
-    /* Ajusta o título principal do Hero */
+    #contact {
+        padding-top: 110px;
+        padding-bottom: 60px;
+    }
+
+    .hero-section {
+        padding: 100px 16px 40px;
+        text-align: center;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
     .hero-title,
     h1 {
-        font-size: 2rem !important; /* Diminui a fonte para caber no celular */
-        line-height: 1.2;
-        word-wrap: break-word;
+        font-size: 1.9rem;
+        line-height: 1.25;
+        word-break: break-word;
+        text-align: center;
     }
 
-    /* Ajusta textos e subtítulos */
+    h2, .section-title { font-size: 1.5rem; }
+
     .hero-subtitle,
     p {
         font-size: 0.95rem;
-        padding: 0 10px;
     }
 
-    /* Ajusta os botões para telas pequenas */
     .hero-buttons,
     .project-links {
         flex-direction: column;
@@ -712,100 +666,24 @@ footer {
     .btn {
         width: 100%;
         text-align: center;
+        justify-content: center;
     }
-}
-/* ==========================================================================
-   CORREÇÃO DEFINITIVA DE TRANSBORDAMENTO LATERAL (MOBILE)
-   ========================================================================== */
 
-/* 1. Reset Global de Box-Sizing para garantir que Padding não expanda a largura */
-*, *::before, *::after {
-    box-sizing: border-box !important;
-}
+    /* Terminal / bloco de código: nunca deixar estourar a largura da tela */
+    .code-card,
+    .terminal-loader,
+    pre,
+    code {
+        max-width: 100%;
+        width: 100%;
+        font-size: 0.8rem;
+    }
 
-/* 2. Bloqueio estrito de rolagem horizontal no body e html */
-html, body {
-    max-width: 100vw !important;
-    overflow-x: hidden !important;
-    margin: 0;
-    padding: 0;
+    .card-body { font-size: 0.8rem; }
 }
 
-/* 3. Contenção para telas menores que 768px */
-@media (max-width: 768px) {
-
-    /* Garante que nenhum container ultrapasse a tela */
-    .container,
-    .section,
-    .hero,
-    .hero-content,
-    .projects-grid,
-    .project-card,
-    header,
-    nav {
-        max-width: 100% !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-    }
-
-    .section {
-        padding-left: 16px !important;
-        padding-right: 16px !important;
-    }
-
-    /* Ajuste de tipografia para evitar quebra/corte nas bordas */
-    h1, .hero-title {
-        font-size: 1.8rem !important;
-        line-height: 1.25 !important;
-        word-break: break-word !important;
-        overflow-wrap: break-word !important;
-    }
-
-    h2, .section-title {
-        font-size: 1.5rem !important;
-        word-break: break-word !important;
-    }
-
-    p, .hero-subtitle {
-        font-size: 0.9rem !important;
-        word-break: break-word !important;
-    }
-
-    /* Impede que blocos de código/terminal estourem a tela */
-    pre, code, .terminal-window {
-        max-width: 100% !important;
-        overflow-x: auto !important;
-    }
-}
-/* ==========================================================================
-   AJUSTE DE LARGURA DO TERMINAL E QUEBRA DE TEXTO (MOBILE)
-   ========================================================================== */
-
-@media (max-width: 768px) {
-    /* Força o título a quebrar a linha entre as palavras sem estourar */
-    .hero-title, h1 {
-        display: block !important;
-        width: 100% !important;
-        white-space: normal !important;
-        text-align: center !important;
-    }
-
-    /* Corrige o terminal Python que está empurrando a tela */
-    .hero-code,
-    .terminal-window,
-    .code-container,
-    pre {
-        max-width: 100% !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-        overflow-x: auto !important; /* Adiciona scroll interno se o código for longo */
-        font-size: 0.75rem !important; /* Reduz levemente a fonte do código no mobile */
-        padding: 10px !important;
-    }
-
-    /* Ajusta as margens internas do container Hero */
-    .hero-content {
-        padding-left: 10px !important;
-        padding-right: 10px !important;
-    }
+/* Telas muito pequenas: até 380px */
+@media (max-width: 380px) {
+    .hero-title, h1 { font-size: 1.6rem; }
+    .section { padding: 80px 12px 30px; }
 }
