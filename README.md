@@ -1,4 +1,4 @@
-]# 🌐 Portfólio Pessoal | Ademir Albino
+# 🌐 Portfólio Pessoal | Ademir Albino
 
 Bem-vindo ao repositório do meu portfólio profissional! Este projeto foi desenvolvido para apresentar minha trajetória, projetos acadêmicos e pessoais, além de demonstrar minhas competências em **Desenvolvimento Software (Python / Full Stack)** e **Segurança da Informação / Cybersecurity**.
 
