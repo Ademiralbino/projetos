@@ -157,6 +157,13 @@ body {
     padding: 15px 0;
     background: #0A0F1D;
     border-bottom: 1px solid rgba(0, 210, 255, 0.1);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+#header.scrolled {
+    background: rgba(10, 15, 29, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 .nav-container {
@@ -313,6 +320,7 @@ body {
 .btn-primary:hover {
     background-color: #00D2FF;
     color: #0A0F1D;
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
 }
 
 .btn-secondary {
@@ -339,6 +347,7 @@ body {
     border: 1px solid rgba(0, 210, 255, 0.2);
     border-radius: 12px;
     overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .card-header {
@@ -409,12 +418,23 @@ body {
     padding: 30px 20px;
     border-radius: 12px;
     text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    border-color: #00D2FF;
 }
 
 .skill-card i {
     font-size: 2.5rem;
     color: #00D2FF;
     margin-bottom: 15px;
+}
+
+.skill-card h3 {
+    font-size: 1rem;
+    color: #F4F6FC;
 }
 
 /* ==========================================================================
@@ -435,12 +455,19 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    border-color: #00D2FF;
 }
 
 .project-card.featured-project {
     grid-column: 1 / -1;
     border: 1px solid #00D2FF;
     position: relative;
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.1);
 }
 
 .project-badge {
@@ -502,6 +529,11 @@ body {
     text-decoration: none;
     font-weight: 600;
     font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.project-link:hover {
+    color: #00D2FF;
 }
 
 /* ==========================================================================
@@ -528,11 +560,12 @@ body {
 .social-links a {
     color: #F4F6FC;
     font-size: 1.8rem;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .social-links a:hover {
     color: #00D2FF;
+    transform: translateY(-3px);
 }
 
 footer {
@@ -562,7 +595,6 @@ footer {
 
 /* Smartphones (Ajustes Específicos para Celular) */
 @media (max-width: 768px) {
-    /* Header e Navegação Mobile */
     #header {
         padding: 12px 0;
     }
@@ -590,7 +622,6 @@ footer {
         display: flex;
     }
 
-    /* Ajustes Gerais de Seção no Mobile */
     .section {
         min-height: auto;
         padding: 80px 15px 40px;
@@ -601,7 +632,6 @@ footer {
         margin-bottom: 25px;
     }
 
-    /* Hero Section Mobile */
     .hero-section {
         padding-top: 100px;
         padding-bottom: 40px;
@@ -635,7 +665,6 @@ footer {
         width: 100%;
     }
 
-    /* Ajuste do Card de Código no Mobile */
     .hero-visual {
         margin-top: 20px;
     }
@@ -650,14 +679,12 @@ footer {
         overflow-x: auto;
     }
 
-    /* Sobre Mim Mobile */
     .about-card {
         padding: 20px;
         font-size: 0.95rem;
         line-height: 1.6;
     }
 
-    /* Grid de Habilidades no Mobile */
     .skills-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 12px;
@@ -675,7 +702,6 @@ footer {
         font-size: 0.9rem;
     }
 
-    /* Cards de Projetos Mobile */
     .project-card {
         padding: 20px;
     }
@@ -689,7 +715,6 @@ footer {
         right: 15px;
     }
 
-    /* Contato Mobile */
     .social-links {
         gap: 20px;
     }

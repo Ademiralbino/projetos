@@ -9,16 +9,26 @@
     <link rel="icon" type="image/png" href="assets/favicon.ico">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="style.css?v=5">
+    <link rel="stylesheet" href="style.css?v=6">
 
     <!-- Ícones FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-<!-- Tela de Abertura -->
+<!-- Tela de Abertura (Terminal Loader) -->
 <div id="intro-screen">
-    <canvas id="lightningCanvas"></canvas>
+    <div class="terminal-loader">
+        <div class="terminal-header">
+            <span class="t-dot red"></span>
+            <span class="t-dot yellow"></span>
+            <span class="t-dot green"></span>
+            <span class="t-title">system_init.sh</span>
+        </div>
+        <div class="terminal-body" id="terminal-body">
+            <p><span class="prompt">$</span> <span class="cmd" id="typed-text"></span><span class="cursor">|</span></p>
+        </div>
+    </div>
 </div>
 
 <!-- Conteúdo Principal do Site -->
@@ -53,7 +63,7 @@
             <div class="hero-content">
                 <span class="hero-badge">Desenvolvedor</span>
                 <h1 class="hero-title">
-                    Olá eu sou <span class="highlight-text">Ademir Albino</span>
+                    Olá, eu sou <span class="highlight-text">Ademir Albino</span>
                 </h1>
                 <h2 class="hero-subtitle">Transformando ideias em soluções através de código.</h2>
                 <p class="hero-description">
@@ -83,7 +93,7 @@
     <span class="keyword">def</span> <span class="function">__init__</span>(self):
         self.name = <span class="string">"Ademir Albino"</span>
         self.role = <span class="string">"ADS Student"</span>
-        self.skills = [<span class="string">"HTML"</span>, <span class="string">"CSS"</span>, <span class="string">"JS"</span>]
+        self.skills = [<span class="string">"HTML"</span>, <span class="string">"CSS"</span>, <span class="string">"JS"</span>, <span class="string">"Python"</span>, <span class="string">"Java"</span>]
 
     <span class="keyword">def</span> <span class="function">build_solutions</span>(self):
         <span class="keyword">return</span> <span class="string">"Code, Security & Performance"</span></code></pre>
@@ -102,7 +112,7 @@
                 por natureza, especialmente quando o assunto envolve tecnologia. Gosto de entender como as coisas funcionam,
                 transformar ideias em código e aprender colocando a mão na massa. Tenho interesse especial por Java,
                 Programação Orientada a Objetos, Banco de Dados, Engenharia de Software e Segurança da Informação,
-                além de desenvolvimento Web com HTML5, CSS3 e JavaScript.
+                além de desenvolvimento Web com HTML5, CSS3, JavaScript e Python.
             </p>
             <p>
                 No momento, estou aprofundando meus conhecimentos e desenvolvendo projetos práticos para transformar
@@ -184,34 +194,44 @@
 
             <div class="project-card">
                 <div class="project-info">
-                    <h3>E-Commerce</h3>
-                    <p>Simulação de loja virtual interativa com estrutura dinâmica de produtos, navegação fluida e gerenciamento visual de catálogo.</p>
+                    <h3>Gerador de Senhas Seguras</h3>
+                    <p>Aplicação full stack de segurança que gera senhas criptograficamente seguras com cálculo de entropia, tempo estimado de quebra via força bruta e integração via API REST.</p>
                     <div class="project-tags">
                         <span>HTML5</span>
                         <span>CSS3</span>
                         <span>JavaScript</span>
+                        <span>Python</span>
+                        <span>Flask</span>
+                        <span>API REST</span>
                     </div>
                 </div>
                 <div class="project-links">
-                    <a href="https://ademiralbino.github.io/ecommerce/" target="_blank" class="project-link">
-                        <i class="fab fa-github"></i> Ver Código
+                    <a href="https://ademiralbino.github.io/gerador-de-senhas/" target="_blank" class="project-link">
+                        <i class="fas fa-external-link-alt"></i> Ver Projeto
+                    </a>
+                    <a href="https://github.com/Ademiralbino/gerador-de-senhas" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i> Código
                     </a>
                 </div>
             </div>
 
             <div class="project-card">
                 <div class="project-info">
-                    <h3>Gerador de Senhas</h3>
-                    <p>Aplicação voltada para segurança da informação, gerando senhas fortes e personalizadas através de manipulação dinâmica de regras em JS.</p>
+                    <h3>E-Commerce</h3>
+                    <p>Plataforma de loja virtual interativa com carrinho de compras dinâmico, busca/filtragem em tempo real e persistência de dados local via localStorage.</p>
                     <div class="project-tags">
                         <span>HTML5</span>
                         <span>CSS3</span>
                         <span>JavaScript</span>
+                        <span>LocalStorage</span>
                     </div>
                 </div>
                 <div class="project-links">
-                    <a href="https://ademiralbino.github.io/gerador-de-senhas/" target="_blank" class="project-link">
-                        <i class="fab fa-github"></i> Ver Código
+                    <a href="https://ademiralbino.github.io/ecommerce/" target="_blank" class="project-link">
+                        <i class="fas fa-external-link-alt"></i> Ver Projeto
+                    </a>
+                    <a href="https://github.com/Ademiralbino/ecommerce" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i> Código
                     </a>
                 </div>
             </div>
@@ -219,16 +239,20 @@
             <div class="project-card">
                 <div class="project-info">
                     <h3>Landing Page Pet Shop</h3>
-                    <p>Página promocional com foco em design moderno, experiência do usuário (UX) e estratégias de conversão de clientes.</p>
+                    <p>Página promocional responsiva com agendamento interativo de serviços, animações suaves e código semântico otimizado para SEO e UX.</p>
                     <div class="project-tags">
                         <span>HTML5</span>
-                        <span>CSS3 / SASS</span>
+                        <span>CSS3</span>
                         <span>JavaScript</span>
+                        <span>UX/SEO</span>
                     </div>
                 </div>
                 <div class="project-links">
                     <a href="https://ademiralbino.github.io/landing-page-petshop/" target="_blank" class="project-link">
-                        <i class="fab fa-github"></i> Ver Código
+                        <i class="fas fa-external-link-alt"></i> Ver Projeto
+                    </a>
+                    <a href="https://github.com/Ademiralbino/landing-page-petshop" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i> Código
                     </a>
                 </div>
             </div>
@@ -236,16 +260,23 @@
             <div class="project-card">
                 <div class="project-info">
                     <h3>Tela de Login</h3>
-                    <p>Interface de autenticação de usuários com validação de campos, focada em layout moderno, boas práticas de CSS e responsividade total.</p>
+                    <p>Interface de autenticação de usuários com autenticação segura Flask JWT, banco de dados SQLite e layout moderno focado em responsividade total.</p>
                     <div class="project-tags">
                         <span>HTML5</span>
                         <span>CSS3</span>
                         <span>JavaScript</span>
+                        <span>Python</span>
+                        <span>Flask</span>
+                        <span>JWT</span>
+                        <span>SQLite</span>
                     </div>
                 </div>
                 <div class="project-links">
                     <a href="https://ademiralbino.github.io/tela-de-login/" target="_blank" class="project-link">
-                        <i class="fab fa-github"></i> Ver Código
+                        <i class="fas fa-external-link-alt"></i> Ver Projeto
+                    </a>
+                    <a href="https://github.com/Ademiralbino/tela-de-login" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i> Código
                     </a>
                 </div>
             </div>
