@@ -18,6 +18,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     overflow-x: hidden;
     min-height: 100vh;
+    width: 100%;
 }
 
 .hidden {
@@ -41,11 +42,12 @@ body {
 }
 
 .section-title {
-    font-size: 2rem;
+    font-size: clamp(1.6rem, 4vw, 2rem);
     color: #F4F6FC;
     margin-bottom: 40px;
     position: relative;
     display: inline-block;
+    word-break: break-word;
 }
 
 .section-title::after {
@@ -270,20 +272,24 @@ body {
     margin-bottom: 20px;
 }
 
+/* Ajuste no título para não cortar o nome "Ademir Albino" */
 .hero-title {
-    font-size: 3rem;
+    font-size: clamp(1.8rem, 5vw, 3rem);
     font-weight: 800;
     line-height: 1.2;
     color: #F4F6FC;
     margin-bottom: 15px;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .highlight-text {
     color: #00D2FF;
+    display: inline-block;
 }
 
 .hero-subtitle {
-    font-size: 1.3rem;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
     color: #a0aec0;
     margin-bottom: 20px;
 }
@@ -375,11 +381,14 @@ body {
     font-family: 'Consolas', 'Courier New', monospace;
     font-size: 0.85rem;
     line-height: 1.5;
+    overflow-x: auto;
 }
 
+/* Correção da quebra do código developer.py */
 .card-body pre {
-    white-space: pre;
-    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-all;
+    margin: 0;
 }
 
 .keyword { color: #ff79c6; }
@@ -576,7 +585,7 @@ footer {
 }
 
 /* ==========================================================================
-   9. RESPONSIVIDADE ADAPTATIVA (DESKTOP, TABLET E MOBILE)
+   9. RESPONSIVIDADE ADAPTATIVA
    ========================================================================== */
 
 /* Tablets e Monitores Pequenos */
@@ -593,7 +602,7 @@ footer {
     }
 }
 
-/* Smartphones (Ajustes Específicos para Celular) */
+/* Smartphones */
 @media (max-width: 768px) {
     #header {
         padding: 12px 0;
@@ -627,11 +636,6 @@ footer {
         padding: 80px 15px 40px;
     }
 
-    .section-title {
-        font-size: 1.6rem;
-        margin-bottom: 25px;
-    }
-
     .hero-section {
         padding-top: 100px;
         padding-bottom: 40px;
@@ -645,15 +649,15 @@ footer {
     }
 
     .hero-title {
-        font-size: 2.1rem;
+        font-size: clamp(1.6rem, 6vw, 2.2rem);
     }
 
     .hero-subtitle {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 
     .hero-description {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
     }
 
     .hero-buttons {
@@ -674,9 +678,8 @@ footer {
     }
 
     .card-body {
-        font-size: 0.78rem;
-        padding: 15px;
-        overflow-x: auto;
+        font-size: 0.75rem;
+        padding: 12px;
     }
 
     .about-card {
@@ -724,13 +727,9 @@ footer {
     }
 }
 
-/* Celulares muito pequenos (abaixo de 400px) */
+/* Celulares muito pequenos */
 @media (max-width: 400px) {
     .skills-grid {
         grid-template-columns: 1fr;
-    }
-
-    .hero-title {
-        font-size: 1.8rem;
     }
 }
